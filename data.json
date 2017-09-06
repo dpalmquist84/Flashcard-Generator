@@ -24,6 +24,21 @@
       "front": "What is the best movie ever?",
       "back": "Die Hard",
       "type": "Basic Card"
+    },
+    {
+      "front": "Who is the greatest rapper in the world",
+      "back": "Dylan",
+      "type": "Basic Card"
+    },
+    {
+      "front": "Who is the best",
+      "back": "David",
+      "type": "Basic Card"
+    },
+    {
+      "front": "d",
+      "back": "d",
+      "type": "Basic Card"
     }
   ]
 }

@@ -88,15 +88,15 @@ inquirer.prompt([
 
 
       if( opts === "Show all cards"){
-         console.log(`${this} worked`)
-         console.log(color.random(`${bestBand.front}? ${bestBand.back}`))
-         console.log(color.america(`${bestPresident.front}? ${bestPresident.back}`))
+         pull.showCards()
+         setTimeout(ClozeCard, 3000);
+         
       }  
  
 
       if( opts === "Exit the game"){
-        console.log(`${this} worked`)
-        console.log(color.bold.red("SEE YOU LATER!"))
+      
+        console.log(colors.bold.red("SEE YOU LATER!"))
 				
 				process.exit()
       } 
@@ -122,12 +122,37 @@ inquirer.prompt([
           let card = new BasicCard.basicCard(front, back)
           card.createJSON();
           console.log(`Card was added`);
+          setTimeout(ClozeCard, 1000);
          })
       }
       
 
        if( opts === "Delete a card"){
-         console.log(`${this} worked`)
+         
+        pull.showCards()
+
+          let question = [
+            {
+              type: "input",
+              name: "deletedCard",
+              message: "what is the number of the card that you want to delete"
+            }
+          ]
+
+        function deleteCard() {
+          inquirer.prompt(question).then(function(answer) {
+            
+            if (isNaN(answer.deleteCard)) {
+              console.log(colors.red.bold.italic("You didnt enter a number ⁉"))
+              setTimeout(deleteCard, 2000)
+            } else {
+              let i = answer.deleteCard;
+              remove.RemoveFromJSON(i);
+              setTimeout(ClozeCard, 1000)
+            }
+          })
+        }
+      setTimeout(deleteCard, 1000)
       
       }
 
