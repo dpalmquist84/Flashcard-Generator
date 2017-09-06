@@ -1,0 +1,29 @@
+{
+  "cards": [
+    {
+      "front": "Who was the greatest president in American History",
+      "back": "Theodore Roosevelt",
+      "type": "BasicCard"
+    },
+    {
+      "front": "What is the greatest band ever",
+      "back": "Van Halen",
+      "type": "BasicCard"
+    },
+    {
+      "front": "What is the best and worst type of dog breed",
+      "back": "Shiba Inu",
+      "type": "BasicCard"
+    },
+    {
+      "front": "What is the best book ever?",
+      "back": "Dune",
+      "type": "Basic Card"
+    },
+    {
+      "front": "What is the best movie ever?",
+      "back": "Die Hard",
+      "type": "Basic Card"
+    }
+  ]
+}
