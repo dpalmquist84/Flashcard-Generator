@@ -6,6 +6,7 @@ let fs = require('fs');
 let colors = require('colors');
 let pull = require('./pull.js');
 let remove = require('./remove.js');
+let fileA = "stuff.json";
 
 
 
@@ -38,7 +39,7 @@ inquirer.prompt([
       if( opts === "Play the game"){
         
         jsonfile.readFile(file, function(err, data){
-          
+        
 
           let card = data.cards.sort(function(){
             return .5 - Math.random();
@@ -53,8 +54,8 @@ inquirer.prompt([
 
           function questions(i, card) {
             if (i === 3) {
-              console.log(colors.bold.green(`correct ${correct}`))
-              console.log(colors.bold.red(`Incorrect ${incorrect}`))
+              console.log(colors.bold.green(`correct ${correct} 👍`))
+              console.log(colors.bold.red(`Incorrect ${incorrect} 👎`))
               setTimeout(ClozeCard, 2000);
             } else {
               console.log(colors.yellow(`Card: ${i+1}`))
@@ -71,7 +72,7 @@ inquirer.prompt([
 
               if(answers.in.toLowerCase() === card[i].back.toLowerCase()){
                 correct++;
-                console.log(colors.green.underline(`CORRECT!!!`))
+                console.log(colors.green.underline(`CORRECT!!! 😃`))
               } else {
                 incorrect++;
                 console.log(colors.red.underline(`INCORRECT!!! 🙁`))
@@ -121,29 +122,31 @@ inquirer.prompt([
 
           let card = new BasicCard.basicCard(front, back)
           card.createJSON();
-          console.log(`Card was added`);
+          console.log(`Card was added 👌`);
           setTimeout(ClozeCard, 1000);
          })
       }
       
 
-       if( opts === "Delete a card"){
+       if( opts === "Delete a card 💔"){
          
         pull.showCards()
 
           let question = [
             {
               type: "input",
-              name: "deletedCard",
+              name: "deleteCard",
               message: "what is the number of the card that you want to delete"
             }
           ]
 
         function deleteCard() {
           inquirer.prompt(question).then(function(answer) {
+          
+
             
             if (isNaN(answer.deleteCard)) {
-              console.log(colors.red.bold.italic("You didnt enter a number ⁉"))
+              console.log(colors.red.bold.italic("You didnt enter a number ❓"))
               setTimeout(deleteCard, 2000)
             } else {
               let i = answer.deleteCard;
